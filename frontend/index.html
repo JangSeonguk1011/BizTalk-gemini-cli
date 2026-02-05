@@ -4,47 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BizTone Converter</title>
-    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
     <!-- Pretendard will be handled by CSS if available -->
 </head>
-<body>
-    <header>
-        <h1>BizTone Converter</h1>
-        <p>업무 말투 자동 변환 솔루션</p>
+<body class="font-sans bg-gray-100 text-gray-800 leading-relaxed text-base">
+    <header class="text-center p-5 bg-white border-b border-gray-200 mb-5">
+        <h1 class="text-3xl text-blue-600">BizTone Converter</h1>
+        <p class="text-sm text-gray-600">업무 말투 자동 변환 솔루션</p>
     </header>
 
-    <main class="container">
-        <section class="card input-section">
-            <h2>원문 입력</h2>
-            <textarea id="originalText" placeholder="여기에 변환할 내용을 입력하세요 (최대 500자)" maxlength="500"></textarea>
-            <div class="char-count">
+    <main class="flex flex-col md:flex-row gap-5 p-4 md:p-5 max-w-screen-xl mx-auto">
+        <section class="flex-1 bg-white p-6 rounded-lg shadow-md mb-5 md:mb-0">
+            <h2 class="text-xl text-gray-800 mt-0">원문 입력</h2>
+            <textarea id="originalText" placeholder="여기에 변환할 내용을 입력하세요 (최대 500자)" maxlength="500" class="w-full min-h-[200px] p-3 border border-gray-200 rounded font-sans text-base resize-y mb-3 box-border focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"></textarea>
+            <div class="text-sm text-gray-600 text-right mb-4">
                 <span id="currentCharCount">0</span>/500
             </div>
 
-            <div class="target-selection">
-                <h3>변환 대상 선택</h3>
-                <label>
-                    <input type="radio" name="targetAudience" value="Upward" checked> 상사
+            <div class="mb-5">
+                <h3 class="text-base font-semibold mb-3 text-gray-800">변환 대상 선택</h3>
+                <label class="mr-4 cursor-pointer text-base">
+                    <input type="radio" name="targetAudience" value="Upward" checked class="mr-1"> 상사
                 </label>
-                <label>
-                    <input type="radio" name="targetAudience" value="Lateral"> 타팀 동료
+                <label class="mr-4 cursor-pointer text-base">
+                    <input type="radio" name="targetAudience" value="Lateral" class="mr-1"> 타팀 동료
                 </label>
-                <label>
-                    <input type="radio" name="targetAudience" value="External"> 고객
+                <label class="mr-4 cursor-pointer text-base">
+                    <input type="radio" name="targetAudience" value="External" class="mr-1"> 고객
                 </label>
             </div>
-            <button id="convertButton">변환하기</button>
-            <div id="errorMessage" class="error-message"></div>
+            <button id="convertButton" class="w-full bg-blue-600 text-white py-3 px-6 rounded text-base cursor-pointer transition-colors duration-300 hover:bg-blue-700 active:bg-blue-800 disabled:bg-gray-400 disabled:cursor-not-allowed mb-4">변환하기</button>
+            <div id="errorMessage" class="text-red-600 text-sm mt-2 text-center min-h-[20px]"></div>
         </section>
 
-        <section class="card result-section">
-            <h2>변환 결과</h2>
-            <textarea id="convertedText" readonly placeholder="변환된 결과가 여기에 표시됩니다."></textarea>
-            <button id="copyButton">복사하기</button>
-            <div id="copyFeedback" class="copy-feedback"></div>
+        <section class="flex-1 bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-xl text-gray-800 mt-0">변환 결과</h2>
+            <textarea id="convertedText" readonly placeholder="변환된 결과가 여기에 표시됩니다." class="w-full min-h-[200px] p-3 border border-gray-200 rounded font-sans text-base resize-y mb-3 box-border focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"></textarea>
+            <button id="copyButton" class="w-full bg-blue-600 text-white py-3 px-6 rounded text-base cursor-pointer transition-colors duration-300 hover:bg-blue-700 active:bg-blue-800 disabled:bg-gray-400 disabled:cursor-not-allowed mt-4">복사하기</button>
+            <div id="copyFeedback" class="text-emerald-500 text-sm mt-2 text-center min-h-[20px]"></div>
         </section>
     </main>
 
