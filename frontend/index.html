@@ -5,15 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BizTone Converter</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Pretendard will be handled by CSS if available -->
 </head>
 <body>
     <header>
         <h1>BizTone Converter</h1>
+        <p>업무 말투 자동 변환 솔루션</p>
     </header>
-    <main>
-        <p>Sprint 1: 환경 설정 및 API 연동</p>
-        <p>프론트엔드 파일이 준비되었습니다.</p>
+
+    <main class="container">
+        <section class="card input-section">
+            <h2>원문 입력</h2>
+            <textarea id="originalText" placeholder="여기에 변환할 내용을 입력하세요 (최대 500자)" maxlength="500"></textarea>
+            <div class="char-count">
+                <span id="currentCharCount">0</span>/500
+            </div>
+
+            <div class="target-selection">
+                <h3>변환 대상 선택</h3>
+                <label>
+                    <input type="radio" name="targetAudience" value="Upward" checked> 상사
+                </label>
+                <label>
+                    <input type="radio" name="targetAudience" value="Lateral"> 타팀 동료
+                </label>
+                <label>
+                    <input type="radio" name="targetAudience" value="External"> 고객
+                </label>
+            </div>
+            <button id="convertButton">변환하기</button>
+            <div id="errorMessage" class="error-message"></div>
+        </section>
+
+        <section class="card result-section">
+            <h2>변환 결과</h2>
+            <textarea id="convertedText" readonly placeholder="변환된 결과가 여기에 표시됩니다."></textarea>
+            <button id="copyButton">복사하기</button>
+            <div id="copyFeedback" class="copy-feedback"></div>
+        </section>
     </main>
+
     <script src="js/script.js"></script>
 </body>
 </html>
